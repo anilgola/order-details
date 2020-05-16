@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  order-detail:
+    image: aniljava/order-detail:version1
+    ports:
+      - "5000:5000"
+    environment:
+      ORDER_SERVICE_URI: http://order-service
+      USER_SERVICE_URI: http://user-service
+    restart: always
+    networks:
+      - user-network
+networks:
+  user-network:
